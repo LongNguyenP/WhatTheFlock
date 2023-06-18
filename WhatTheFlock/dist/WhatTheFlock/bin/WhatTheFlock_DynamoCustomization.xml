@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+    <assembly>
+        <name>WhatTheFlock</name>
+    </assembly>
+    <namespaces>
+        <namespace name="WhatTheFlock.ZeroTouch">
+            <category>WhatTheFlock</category>
+        </namespace>
+    </namespaces>
+</doc>

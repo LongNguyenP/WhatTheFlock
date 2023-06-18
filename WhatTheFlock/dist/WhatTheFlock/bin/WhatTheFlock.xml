@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WhatTheFlock</name>
+    </assembly>
+    <members>
+        <member name="M:WhatTheFlock.Util.ComputeBestFitLine(System.Collections.Generic.List{WhatTheFlock.Triple},WhatTheFlock.Triple@,WhatTheFlock.Triple@,System.Single)">
+            <summary>
+            Compute the line that best fit a set of input points (least squared orthogonal distance)
+            </summary>
+            <param name="points">The input points</param>
+            <param name="lineOrigin">Origin of the best fit line</param>
+            <param name="lineDirection">Direction of the best fit line</param>
+            <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, or non-collinear</param>
+            <returns>0 if the input points are coincidental; 1 if they are collinear; 2 otherwise</returns>
+        </member>
+        <member name="M:WhatTheFlock.Util.ComputeBestFitPlane(System.Collections.Generic.List{WhatTheFlock.Triple},WhatTheFlock.Triple@,WhatTheFlock.Triple@,System.Single)">
+            <summary>
+            Compute the plane that best fit a set of input points (least squared orthogonal distance)
+            </summary>
+            <param name="points">The input points</param>
+            <param name="planeOrigin">Origin of the best fit plane</param>
+            <param name="planeNormal">Normal of the best fit plane</param>
+            <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, coplanar, or non-coplanar</param>
+            <returns>0 if the input points are coincidental; 1 if they are collinear; 2 if they are coplanar; 3 otherwise</returns>
+        </member>
+        <member name="M:WhatTheFlock.Util.ComputeBestFitCircle(System.Collections.Generic.List{WhatTheFlock.Triple},WhatTheFlock.Triple@,WhatTheFlock.Triple@,System.Single@,System.Single)">
+            <summary>
+            Approximate the circle that best fit a set of input points
+            </summary>
+            <param name="points">The input points</param>
+            <param name="circleCenter">Center of the best fit circle</param>
+            <param name="circleNormal">Normal of the best fit circle</param>
+            <param name="circleRadius">Radius of the best fit circle</param>
+            <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, or non-collinear</param>
+            <returns>False if the input points are coincidental or collinear; True otherwise</returns>
+        </member>
+        <member name="M:WhatTheFlock.Util.ComputeBestFitSphere(System.Collections.Generic.List{WhatTheFlock.Triple},WhatTheFlock.Triple@,System.Single@,System.Single)">
+            <summary>
+            Compute the sphere that best fit a set of input points (least squared orthogonal distance)
+            </summary>
+            <param name="points">The input points</param>
+            <param name="sphereCenter">Center of the best fit sphere</param>
+            <param name="sphereRadius">Radius of the best fit sphere</param>
+            <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, coplanar, or non-coplanar</param>
+            <returns>False if the input points are coincidental, collinear or coplanar; True otherwise</returns>
+        </member>
+    </members>
+</doc>

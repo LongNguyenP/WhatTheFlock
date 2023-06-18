@@ -1,0 +1,4 @@
+<ViewExtensionDefinition>
+    <AssemblyPath>..\bin\WhatTheFlock.dll</AssemblyPath>
+    <TypeName>WhatTheFlock.WhatTheFlockViewExtension</TypeName>
+</ViewExtensionDefinition>
