@@ -45,5 +45,29 @@
             <param name="tolerance">The tolerance that is used the determined if the input points are coincidental, collinear, coplanar, or non-coplanar</param>
             <returns>False if the input points are coincidental, collinear or coplanar; True otherwise</returns>
         </member>
+        <member name="M:WhatTheFlock.ZeroTouch.WhatTheFlock.Execute(WhatTheFlock.WhatTheFlockSystem,System.Int32,System.Boolean,System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Point},System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Vector},System.Int32,System.Boolean,System.Boolean,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Single,System.Collections.Generic.List{Autodesk.DesignScript.Geometry.Sphere},System.Single,System.Single)">
+            <summary>
+            Run the flocking simulation
+            </summary>
+            <param name="whatTheFlock">The flocking simulation engine</param>
+            <param name="agentCount">The number of agents to be created for simulation, with random initial positions and directions (this input will be ignored if agentInitialPositions input is not-null)</param>
+            <param name="agentInitialPositions">The initial positions of the agents. If null. The positions will be created randomly</param>
+            <param name="agentInitialDirections">The initial directions of the agents. If null. The directions will be created randomly</param>
+            <param name="is3D"></param>
+            <param name="iterations"></param>
+            <param name="reset"></param>
+            <param name="execute"></param>
+            <param name="boundingBoxSize"></param>
+            <param name="timeStep"></param>
+            <param name="neighborhoodRadius"></param>
+            <param name="alignmentStrength"></param>
+            <param name="cohesionStrength"></param>
+            <param name="separationStrength"></param>
+            <param name="separationDistance"></param>
+            <param name="sphereRepellers"></param>
+            <param name="agentDisplayedLength"></param>
+            <param name="agentDisplayedWidth"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

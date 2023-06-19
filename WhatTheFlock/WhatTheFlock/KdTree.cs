@@ -18,6 +18,7 @@ namespace WhatTheFlock
         public KdTree(float[] xs, float[] ys, float[] zs, int[] ids)
         {
             int n = xs.Length;
+            if (n == 0) return;
 
             this.xs = xs;
             this.ys = ys;

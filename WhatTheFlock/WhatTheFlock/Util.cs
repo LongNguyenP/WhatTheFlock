@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Autodesk.DesignScript.Runtime;
@@ -29,6 +30,8 @@ namespace WhatTheFlock
         public static bool IsAlmostZero(this float number, float tolerance = 1E-10f) => -tolerance < number && number < tolerance;
         public static bool IsAlmostZero(this double number, double tolerance = 1E-10) => -tolerance < number && number < tolerance;
 
+        private static Random random = new Random();
+
         public static List<Triple> ToTriples(this IEnumerable<Point> points)
         {
             List<Triple> triples = new List<Triple>(points.Count());
@@ -56,6 +59,33 @@ namespace WhatTheFlock
         {
             for (int i = 0; i < array.Length; i++) array[i] = value;
         }
+
+
+        public static Triple GetRandomPoint(float minX, float maxX, float minY, float maxY, float minZ, float maxZ)
+        {
+            return new Triple(
+                random.NextFloat(minX, maxX),
+                random.NextFloat(minY, maxY),
+                random.NextFloat(minZ, maxZ));
+        }
+
+        public static Triple GetRandomUnitVector()
+        {
+            double phi = random.NextFloat(0f, 2f * (float)Math.PI);
+            double theta = Math.Acos(random.NextFloat(-1f, 1f));
+            return new Triple(
+                (float)(Math.Sin(theta) * Math.Cos(phi)),
+                (float)(Math.Sin(theta) * Math.Sin(phi)),
+                (float)(Math.Cos(theta)));
+        }
+
+
+        public static Triple GetRandomUnitVectorXZ(float y = 0f)
+        {
+            double angle = random.NextFloat(0f, 2f * (float)Math.PI);
+            return new Triple((float)Math.Cos(angle), 0f, (float)Math.Sin(angle));
+        }
+
 
         private const float toRadian = (float)Math.PI / 180f;
         private const float toDegree = 180f / (float)Math.PI;

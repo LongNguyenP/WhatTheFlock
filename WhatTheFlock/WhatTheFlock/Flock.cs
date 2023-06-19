@@ -40,17 +40,17 @@ namespace WhatTheFlock
 
         public Flock(int agentCount, bool is3D, float boundingBoxSize)
         {
-            Agents = new List<FlockAgent>();
+            Agents = new List<FlockAgent>(agentCount);
 
             if (is3D)
                 for (int i = 0; i < agentCount; i++)
                 {
                     FlockAgent agent = new FlockAgent(
-                        GetRandomPoint(
+                        Util.GetRandomPoint(
                             -0.5f * boundingBoxSize, 0.5f * boundingBoxSize,
                             -0.5f * boundingBoxSize, 0.5f * boundingBoxSize,
                             0, boundingBoxSize),
-                        GetRandomUnitVector() * 4f);
+                        Util.GetRandomUnitVector() * 4f);
                     agent.Flock = this;
                     Agents.Add(agent);
                 }
@@ -58,8 +58,8 @@ namespace WhatTheFlock
                 for (int i = 0; i < agentCount; i++)
                 {
                     FlockAgent agent = new FlockAgent(
-                        GetRandomPoint(-0.5f * boundingBoxSize, 0.5f * boundingBoxSize, -0.5f * boundingBoxSize, 0.5f * boundingBoxSize, 0f, 0f),
-                        GetRandomUnitVectorXZ() * 4f);
+                        Util.GetRandomPoint(-0.5f * boundingBoxSize, 0.5f * boundingBoxSize, -0.5f * boundingBoxSize, 0.5f * boundingBoxSize, 0f, 0f),
+                        Util.GetRandomUnitVectorXZ() * 4f);
                     agent.Flock = this;
                     Agents.Add(agent);
                 }
@@ -129,38 +129,8 @@ namespace WhatTheFlock
             }
 
             // Once the desired velocity for each agent has been computed, we update each position and velocity
-
-            if (UseParallel) Parallel.ForEach(Agents, agent => agent.UpdateVelocityAndPosition());
-            else
-                foreach (FlockAgent agent in Agents)
-                    agent.UpdateVelocityAndPosition();
-        }
-
-
-        private static Triple GetRandomPoint(float minX, float maxX, float minY, float maxY, float minZ, float maxZ)
-        {
-            return new Triple(
-                random.NextFloat(minX, maxX),
-                random.NextFloat(minY, maxY),
-                random.NextFloat(minZ, maxZ));
-        }
-
-
-        private static Triple GetRandomUnitVector()
-        {
-            double phi = random.NextFloat(0f, 2f * (float)Math.PI);
-            double theta = Math.Acos(random.NextFloat(-1f, 1f));
-            return new Triple(
-                (float)(Math.Sin(theta) * Math.Cos(phi)),
-                (float)(Math.Sin(theta) * Math.Sin(phi)),
-                (float)(Math.Cos(theta)));
-        }
-
-
-        public static Triple GetRandomUnitVectorXZ(float y = 0f)
-        {
-            double angle = random.NextFloat(0f, 2f * (float)Math.PI);
-            return new Triple((float)Math.Cos(angle), 0f, (float)Math.Sin(angle));
+            foreach (FlockAgent agent in Agents)
+                agent.UpdateVelocityAndPosition();
         }
     }
 }
