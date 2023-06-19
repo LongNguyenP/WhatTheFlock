@@ -1,9 +1,9 @@
 {
-    "license": "MIT License",
+    "license": "MIT",
     "file_hash": null,
     "name": "WhatTheFlock",
     "version": "1.0.1",
-    "description": "",
+    "description": "A simple flocking simulation for Dynamo",
     "group": "WhatTheFlock",
     "keywords": [],
     "dependencies": [],
