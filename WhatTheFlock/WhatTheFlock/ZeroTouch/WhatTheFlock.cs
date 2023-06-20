@@ -35,6 +35,7 @@ namespace WhatTheFlock.ZeroTouch
         /// <param name="sphereRepellers"></param>
         /// <param name="agentDisplayedLength"></param>
         /// <param name="agentDisplayedWidth"></param>
+        /// <param name="outputDynamoGeometries">If true, output agent positions and directions as Dynamo points and vectors when the simulation is paused (i.e. when the "execute" input is False)</param>
         /// <returns></returns>
         [MultiReturn("agentPositions", "agentDirections")]
         public static Dictionary<string, object> Execute(
@@ -55,7 +56,8 @@ namespace WhatTheFlock.ZeroTouch
             [DefaultArgument("0.5")] float separationDistance,
             [DefaultArgument("null")] List<Sphere> sphereRepellers,
             [DefaultArgument("0.55")] float agentDisplayedLength,
-            [DefaultArgument("0.35")] float agentDisplayedWidth
+            [DefaultArgument("0.35")] float agentDisplayedWidth,
+            [DefaultArgument("true")] bool outputDynamoGeometries
         )
         {
             Stopwatch stopwatch = new Stopwatch();
@@ -65,7 +67,6 @@ namespace WhatTheFlock.ZeroTouch
             if (reset)
             {
                 whatTheFlock.StopBackgroundExecution();
-                whatTheFlock.Clear();
 
                 if (agentInitialPositions == null)
                 {
@@ -137,11 +138,32 @@ namespace WhatTheFlock.ZeroTouch
                 }
             }
 
-            return new Dictionary<string, object>
+            if (outputDynamoGeometries && !execute)
+            {
+                List<Point> agentPositions = new List<Point>();
+                List<Vector> agentDirections = new List<Vector>();
+
+                foreach (FlockAgent agent in whatTheFlock.Flock.Agents)
+                {
+                    agentPositions.Add(agent.Position.ToPoint());
+                    agentDirections.Add(agent.Position.ToVector());
+                }
+
+                return new Dictionary<string, object>
+                {
+                    { "agentPositions", agentPositions },
+                    { "agentDirections", agentDirections },
+                };
+            }
+
+            else
+            {
+                return new Dictionary<string, object>
                 {
                     { "agentPositions", null },
                     { "agentDirections", null },
                 };
+            }
         }
     }
 }

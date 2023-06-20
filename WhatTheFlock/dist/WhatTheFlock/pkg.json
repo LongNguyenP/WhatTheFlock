@@ -2,7 +2,7 @@
     "license": "MIT",
     "file_hash": null,
     "name": "WhatTheFlock",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "A simple flocking simulation for Dynamo",
     "group": "WhatTheFlock",
     "keywords": [],
@@ -14,5 +14,5 @@
     "site_url": "",
     "repository_url": "",
     "contains_binaries": true,
-    "node_libraries": [ "WhatTheFlock, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" ]
+    "node_libraries": [ "WhatTheFlock, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null" ]
 }

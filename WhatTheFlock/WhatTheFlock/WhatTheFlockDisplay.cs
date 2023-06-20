@@ -185,9 +185,9 @@ namespace WhatTheFlock
         // This handler prevents flickering when geometries other than DynaShape ones exist in the viewport
         private void RequestViewRefreshHandler()
         {
-            // ObservableElement3DCollection sceneItems = DynamoPlaygroundViewExtension.GetSceneItems();
-            // if (!sceneItems.Contains(FlockMeshModel))
-            //     sceneItems.Add(FlockMeshModel);
+            ObservableElement3DCollection sceneItems = WhatTheFlockViewExtension.GetSceneItems();
+            if (!sceneItems.Contains(FlockMeshModel))
+                sceneItems.Add(FlockMeshModel);
         }
     }
 }

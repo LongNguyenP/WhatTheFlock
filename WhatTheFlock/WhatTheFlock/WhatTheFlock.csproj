@@ -44,7 +44,6 @@ Copy "WhatTheFlock.xml" "$(SolutionDir)\dist\WhatTheFlock\bin\WhatTheFlock.xml"<
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FastSvd3x3.cs" />
     <Compile Include="KdTree.cs" />
     <Compile Include="WhatTheFlockViewExtension.cs" />
     <Compile Include="FlockAgent.cs" />

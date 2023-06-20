@@ -19,7 +19,6 @@ namespace WhatTheFlock
         public float AgentDisplayedWidth;
 
         internal WhatTheFlockDisplay WhatTheFlockDisplay;
-        internal MeshGeometryModel3D MeshModel;
 
         internal Flock Flock = new Flock();
 
@@ -58,11 +57,6 @@ namespace WhatTheFlock
         }
 
 
-        public void Clear()
-        {
-        }
-
-
         public void ClearRender()
         {
             WhatTheFlockDisplay?.ClearRender();
@@ -73,6 +67,7 @@ namespace WhatTheFlock
         {
             WhatTheFlockDisplay.Render();
         }
+
 
         private void BackgroundExecutionAction()
         {

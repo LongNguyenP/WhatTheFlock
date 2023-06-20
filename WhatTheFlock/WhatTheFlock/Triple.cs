@@ -4,6 +4,9 @@ using Autodesk.DesignScript.Runtime;
 
 namespace WhatTheFlock
 {
+    /// <summary>
+    /// Fast and lightweight struct for representing 3D points and vectors
+    /// </summary>
     [IsVisibleInDynamoLibrary(false)]
     public struct Triple
     {
