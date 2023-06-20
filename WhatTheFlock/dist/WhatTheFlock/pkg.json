@@ -12,7 +12,9 @@
     "engine": "dynamo",
     "engine_metadata": "",
     "site_url": "",
-    "repository_url": "",
+    "repository_url": "https://github.com/LongNguyenP/WhatTheFlock",
     "contains_binaries": true,
-    "node_libraries": [ "WhatTheFlock, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" ]
+    "node_libraries": [ "WhatTheFlock, Version=1.0.3.0, Culture=neutral, PublicKeyToken=null" ],
+    "copyright_holder": "Long Nguyen",
+    "copyright_year": "2023"
 }
