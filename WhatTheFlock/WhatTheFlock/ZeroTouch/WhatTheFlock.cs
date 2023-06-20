@@ -130,11 +130,6 @@ namespace WhatTheFlock.ZeroTouch
                 else
                 {
                     whatTheFlock.StopBackgroundExecution();
-                    if (!enableFastDisplay)
-                    {
-                        whatTheFlock.ClearRender();
-                        whatTheFlock.Iterate();
-                    }
                 }
             }
 

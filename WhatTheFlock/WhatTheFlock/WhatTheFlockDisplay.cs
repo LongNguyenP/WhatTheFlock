@@ -16,8 +16,6 @@ namespace WhatTheFlock
 
         internal MeshGeometryModel3D FlockMeshModel;
 
-        internal DispatcherOperation DispatcherOperation;
-
         public WhatTheFlockDisplay(WhatTheFlockSystem whatTheFlockSystem)
         {
             this.whatTheFlockSystem = whatTheFlockSystem;
@@ -48,19 +46,9 @@ namespace WhatTheFlock
         }
 
 
-        internal void Render(bool async = false)
+        internal void Render()
         {
-            if (async)
-            {
-                if (DispatcherOperation == null ||
-                    DispatcherOperation != null && DispatcherOperation.Status == DispatcherOperationStatus.Completed)
-                {
-                    DispatcherOperation =
-                        WhatTheFlockViewExtension.DynamoWindow.Dispatcher.InvokeAsync(
-                            RenderAction, DispatcherPriority.Send);
-                }
-            }
-            else WhatTheFlockViewExtension.DynamoWindow.Dispatcher.Invoke(RenderAction, DispatcherPriority.Send);
+            WhatTheFlockViewExtension.DynamoWindow.Dispatcher.Invoke(RenderAction, DispatcherPriority.Send);
         }
 
 

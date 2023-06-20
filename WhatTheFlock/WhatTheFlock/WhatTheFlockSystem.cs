@@ -91,8 +91,7 @@ namespace WhatTheFlock
         {
             if (backgroundExecutionTask == null) return;
             ctSource?.Cancel();
-            backgroundExecutionTask?.Wait(300);
-            WhatTheFlockDisplay.DispatcherOperation?.Task.Wait(300);
+            backgroundExecutionTask?.Wait(1000);
         }
 
 
